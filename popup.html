@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Tracker</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        /* General body styles */
+        body {
+            font-family: "Poppins", sans-serif; /* Classic font for a more traditional look */
+            margin: 20px;
+            background-color:#333; /* Light grey background for a gentle look */
+            color:  #f4f4f9;
+            height: 400px;
+            width: 350px;
+            padding-bottom: 10px; /* Dark grey text for better readability */
+        }
+        .headline{
+            font-size: 15px;
+            text-align: center;
+            padding-bottom: 1rem;
+        }
+        .timespent{
+            font-size: 25px;
+            text-align: center;
+            padding-bottom: 1rem;
+        }
+        .focus{
+            font-size: 25px;
+            text-align: center;
+            padding-top: 1rem;
+        }
+
+        /* Header styles */
+        h3 {
+            font-size: 28px;
+            color: #f4f4f9; /* Soft black */
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #dedede; /* Adds a subtle line under the heading */
+            padding-bottom: 10px;
+        }
+
+        /* Div container for content */
+        div#timeSpentDisplay {
+            font-size: 18px;
+            padding: 20px;
+            background-color: #fff; /* White background for content area */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Soft shadow for 3D effect */
+            border-radius: 10px; /* Rounded corners for a smoother look */
+            max-width: 600px;
+            margin: auto; /* Centers the div */
+            text-align: center;
+            color: #333;
+        }
+
+        /* Toggle switch styles */
+        .switch {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 34px;
+            margin-top: 20px;
+        }
+
+        .switch input { 
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(46px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        /* Focus mode styles */
+        .checkbox-container {
+            text-align: center;
+        }
+
+        .checkbox-container h4 {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #f4f4f9;
+        }
+
+        .restricted-sites span {
+            color: #ff0100; /* Youtube */
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        .restricted-sites span:nth-child(2) {
+            color: #0e8ef2; /* Facebook */
+        }
+        .restricted-sites span:nth-child(3) {
+            color: #e50914; /* Netflix */
+        }
+        .restricted-sites span:nth-child(4) {
+            color: #0e8ef2; /* Prime Video */
+        }
+        .restricted-sites span:nth-child(5) {
+            color: #e50914; /* Instagram */
+        }
+        .restricted-sites span:nth-child(6) {
+            color: #0e8ef2; /* Hotstar */
+        }
+        .restricted-sites span:nth-child(7) {
+            color: #e50914; /* Whatsapp */
+        }
+    </style>
+</head>
+<body>
+    <div class="headline"><h1>| Activity Tracker |</h1></div>
+    <div class="timespent">Time Spent on Websites</div>
+    <div id="timeSpentDisplay">
+        <!-- Content will be dynamically loaded here -->
+    </div>
+    <br>
+    <br>
+    <hr>
+    <div class="focus">Focus Mode</div>
+    <div class="checkbox-container">
+        <div class="switch">
+            <label>
+                <input type="checkbox" id="focusModeToggle">
+                <span class="slider round"></span>
+            </label>
+        </div>       
+        <h4>Restricted sites under focused mode</h4>
+        <span class="restricted-sites">
+            Restricted Sites:
+            <span>Youtube</span>
+            <span>Facebook</span>
+            <span>Netflix</span>
+            <span>Prime Video</span>
+            <span>Instagram</span>
+            <span>Hotstar</span>
+            <span>Whatsapp</span>
+        </span>
+        <br>
+        <br>
+    </div>
+
+    <script src="popup.js"></script>
+    <script src="Content.js"></script>
+</body>
+</html>
